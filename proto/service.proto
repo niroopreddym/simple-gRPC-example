@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package proto;
+
+message Request{
+    //this request protocol bufffer size is declared here
+    // this is the basic memory struture we are assigning for the variables
+    //values between 1 and 15 means that the declared variables can take values upto one byte in size
+    // if we want to assign values equals to 2 bytes then provide values between 16 and 2047
+    //both the variables should have unique numbers atatched to them.
+    int64 a =1;
+    int64 b= 2;
+}
+
+message Response{
+    //response protocol buffer size is declared here
+    //this is also a memory alotment feature on the server side buffer size not the value
+    int64 result = 1;
+}
+
+service AddService{
+    rpc Add(Request) returns (Response);
+    rpc Multiply(Request) returns (Response);
+}
+
